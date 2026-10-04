@@ -1,0 +1,375 @@
+<!-- Activity Page Template -->
+<div id="activity-page" class="page">
+  <div class="main-layout">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <div class="navbar-logo-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          ConflictCanvas
+        </div>
+        <div class="navbar-search">
+          <i data-lucide="search" class="navbar-search-icon"></i>
+          <input type="text" placeholder="Search activity...">
+        </div>
+      </div>
+      <div class="navbar-right">
+        <button class="navbar-icon-btn" onclick="demo.start()">
+          <i data-lucide="play"></i>
+          <span class="badge">DEMO</span>
+        </button>
+        <button class="navbar-icon-btn">
+          <i data-lucide="bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="navbar-profile">
+          <div class="avatar avatar-sm avatar-online">K</div>
+          <div class="navbar-profile-info">
+            <span class="navbar-profile-name">Kunal</span>
+            <span class="navbar-profile-email">kunal@demo.com</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <nav class="sidebar-nav">
+          <a href="#/dashboard" class="sidebar-nav-item">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="#/projects" class="sidebar-nav-item">
+            <i data-lucide="folder"></i>
+            Projects
+          </a>
+          <a href="#/tasks" class="sidebar-nav-item">
+            <i data-lucide="check-square"></i>
+            Tasks
+          </a>
+          <a href="#/conflicts" class="sidebar-nav-item">
+            <i data-lucide="alert-triangle"></i>
+            Conflicts
+            <span class="badge badge-danger">2</span>
+          </a>
+          <a href="#/activity" class="sidebar-nav-item active">
+            <i data-lucide="clock"></i>
+            Activity
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Team</div>
+        <div class="sidebar-users">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">K</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Kunal</div>
+              <div class="sidebar-user-task">Authentication API</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">M</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Maan</div>
+              <div class="sidebar-user-task">Dashboard UI</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm">N</div>
+              <div class="sidebar-user-status offline"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Nitya</div>
+              <div class="sidebar-user-task">Offline</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">A</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Aashish</div>
+              <div class="sidebar-user-task">WebSocket</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="sidebar-demo-btn" onclick="demo.start()">
+        <i data-lucide="play"></i>
+        Try Live Conflict Demo
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Activity</h1>
+        <p class="page-subtitle">Real-time activity timeline across all projects</p>
+        <div class="page-actions">
+          <button class="btn btn-secondary">
+            <i data-lucide="download"></i>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="activity-filters">
+        <button class="filter-chip active">All Activity</button>
+        <button class="filter-chip">Tasks</button>
+        <button class="filter-chip">Conflicts</button>
+        <button class="filter-chip">Comments</button>
+        <button class="filter-chip">Files</button>
+        <button class="filter-chip">Team</button>
+      </div>
+
+      <!-- Activity Timeline -->
+      <div class="activity-timeline">
+        <!-- Conflict Activity -->
+        <div class="activity-timeline-item type-conflict">
+          <div class="activity-card type-conflict">
+            <div class="activity-time">10:42 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">K</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Kunal</strong> and <strong>Maan</strong> edited <span class="highlight-danger">Authentication API</span> simultaneously
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>Conflict Detected</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="git-commit"></i>
+                    <span>v7 → v8</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+                <div class="activity-actions">
+                  <button class="btn btn-danger btn-sm" onclick="demo.start()">
+                    <i data-lucide="git-merge"></i>
+                    Resolve Conflict
+                  </button>
+                  <button class="btn btn-secondary btn-sm">
+                    <i data-lucide="eye"></i>
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Update -->
+        <div class="activity-timeline-item">
+          <div class="activity-card">
+            <div class="activity-time">10:38 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">M</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Maan</strong> changed priority of <span class="highlight">Dashboard UI</span> to <span class="highlight-warning">HIGH</span>
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span>Priority Changed</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="git-commit"></i>
+                    <span>v4 → v5</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment -->
+        <div class="activity-timeline-item">
+          <div class="activity-card">
+            <div class="activity-time">10:35 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">A</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Aashish</strong> commented on <span class="highlight">WebSocket Integration</span>: "Need to handle reconnection logic properly"
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="message-square"></i>
+                    <span>Comment Added</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Completion -->
+        <div class="activity-timeline-item type-success">
+          <div class="activity-card type-success">
+            <div class="activity-time">10:30 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">N</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Nitya</strong> completed <span class="highlight-success">Database Schema</span>
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="check-circle"></i>
+                    <span>Task Completed</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="git-commit"></i>
+                    <span>v11 → v12</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Assignment -->
+        <div class="activity-timeline-item">
+          <div class="activity-card">
+            <div class="activity-time">10:15 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">K</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Kunal</strong> assigned <span class="highlight">Authentication API</span> to <strong>Kunal</strong>
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="user"></i>
+                    <span>Task Assigned</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="git-commit"></i>
+                    <span>v5 → v6</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- File Upload -->
+        <div class="activity-timeline-item">
+          <div class="activity-card">
+            <div class="activity-time">10:00 AM — Today</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">M</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Maan</strong> uploaded <span class="highlight">auth-spec.pdf</span> to <span class="highlight">Authentication API</span>
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="upload"></i>
+                    <span>File Uploaded</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="file"></i>
+                    <span>2.4 MB</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Creation -->
+        <div class="activity-timeline-item">
+          <div class="activity-card">
+            <div class="activity-time">Yesterday, 4:30 PM</div>
+            <div class="activity-content">
+              <div class="activity-avatar">
+                <div class="avatar">K</div>
+              </div>
+              <div class="activity-details">
+                <p class="activity-text">
+                  <strong>Kunal</strong> created task <span class="highlight">Conflict Resolver</span>
+                </p>
+                <div class="activity-meta">
+                  <div class="activity-meta-item">
+                    <i data-lucide="plus"></i>
+                    <span>Task Created</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="git-commit"></i>
+                    <span>v1</span>
+                  </div>
+                  <div class="activity-meta-item">
+                    <i data-lucide="folder"></i>
+                    <span>ConflictCanvas Platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more">
+        <button class="load-more-btn">
+          Load More Activity
+        </button>
+      </div>
+    </main>
+  </div>
+</div>

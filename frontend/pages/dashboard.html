@@ -1,0 +1,334 @@
+<!-- Dashboard Page Template -->
+<div id="dashboard-page" class="page">
+  <div class="main-layout">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <div class="navbar-logo-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          ConflictCanvas
+        </div>
+        <div class="navbar-search">
+          <i data-lucide="search" class="navbar-search-icon"></i>
+          <input type="text" placeholder="Search tasks, projects, team...">
+        </div>
+      </div>
+      <div class="navbar-right">
+        <button class="navbar-icon-btn" onclick="demo.start()">
+          <i data-lucide="play"></i>
+          <span class="badge">DEMO</span>
+        </button>
+        <button class="navbar-icon-btn">
+          <i data-lucide="bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="navbar-profile">
+          <div class="avatar avatar-sm avatar-online">K</div>
+          <div class="navbar-profile-info">
+            <span class="navbar-profile-name">Kunal</span>
+            <span class="navbar-profile-email">kunal@demo.com</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <nav class="sidebar-nav">
+          <a href="#/dashboard" class="sidebar-nav-item active">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="#/projects" class="sidebar-nav-item">
+            <i data-lucide="folder"></i>
+            Projects
+          </a>
+          <a href="#/tasks" class="sidebar-nav-item">
+            <i data-lucide="check-square"></i>
+            Tasks
+          </a>
+          <a href="#/conflicts" class="sidebar-nav-item">
+            <i data-lucide="alert-triangle"></i>
+            Conflicts
+            <span class="badge badge-danger">2</span>
+          </a>
+          <a href="#/activity" class="sidebar-nav-item">
+            <i data-lucide="clock"></i>
+            Activity
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Team</div>
+        <div class="sidebar-users">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">K</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Kunal</div>
+              <div class="sidebar-user-task">Authentication API</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">M</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Maan</div>
+              <div class="sidebar-user-task">Dashboard UI</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm">N</div>
+              <div class="sidebar-user-status offline"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Nitya</div>
+              <div class="sidebar-user-task">Offline</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">A</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Aashish</div>
+              <div class="sidebar-user-task">WebSocket</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="sidebar-demo-btn" onclick="demo.start()">
+        <i data-lucide="play"></i>
+        Try Live Conflict Demo
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-subtitle">Welcome back, Kunal. Here's what's happening with your projects.</p>
+        <div class="page-actions">
+          <a class="btn btn-secondary" href="#/ai-analyzer">
+            <i data-lucide="sparkles"></i>
+            AI Analyzer
+          </a>
+          <button class="btn btn-secondary" onclick="dashboard.refresh()">
+            <i data-lucide="refresh-cw"></i>
+            Refresh
+          </button>
+          <button class="btn btn-primary" onclick="projects.showCreateModal()">
+            <i data-lucide="plus"></i>
+            New Project
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon primary">
+            <i data-lucide="folder"></i>
+          </div>
+          <div class="stat-card-value" data-count="totalProjects">0</div>
+          <div class="stat-card-label">Total Projects</div>
+          <div class="stat-card-change positive">
+            <i data-lucide="trending-up"></i>
+            <span>+1 this week</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon success">
+            <i data-lucide="check-circle"></i>
+          </div>
+          <div class="stat-card-value" data-count="completedTasks">0</div>
+          <div class="stat-card-label">Completed Tasks</div>
+          <div class="stat-card-change positive">
+            <i data-lucide="trending-up"></i>
+            <span>+2 today</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon warning">
+            <i data-lucide="clock"></i>
+          </div>
+          <div class="stat-card-value" data-count="activeTasks">0</div>
+          <div class="stat-card-label">In Progress</div>
+          <div class="stat-card-change">
+            <i data-lucide="minus"></i>
+            <span>No change</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon danger">
+            <i data-lucide="alert-triangle"></i>
+          </div>
+          <div class="stat-card-value" data-count="openConflicts">0</div>
+          <div class="stat-card-label">Open Conflicts</div>
+          <div class="stat-card-change negative">
+            <i data-lucide="trending-up"></i>
+            <span>+1 new</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts and Activity -->
+      <div class="dashboard-charts">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-card-title">Task Distribution</h3>
+            <button class="navbar-icon-btn">
+              <i data-lucide="more-horizontal"></i>
+            </button>
+          </div>
+          <div class="chart-container">
+            <canvas id="task-chart" role="img" aria-label="Task distribution chart"></canvas>
+          </div>
+          <div class="chart-detail" id="task-chart-detail" aria-live="polite"></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3 class="chart-card-title">Project Progress</h3>
+            <button class="navbar-icon-btn">
+              <i data-lucide="more-horizontal"></i>
+            </button>
+          </div>
+          <div class="chart-container">
+            <canvas id="progress-chart" role="img" aria-label="Project progress chart"></canvas>
+          </div>
+          <div class="chart-detail" id="progress-chart-detail" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Activity and Conflicts -->
+      <div class="content-grid content-grid-2">
+        <div class="dashboard-activity">
+          <div class="section-header">
+            <h3 class="section-title">Recent Activity</h3>
+            <a href="#/activity" class="btn btn-secondary btn-sm">View All</a>
+          </div>
+          <div class="activity-timeline">
+            <div class="activity-item">
+              <div class="activity-time">10:42 AM</div>
+              <div class="activity-content">
+                <span class="activity-user">Kunal</span>
+                <span class="activity-action">updated</span>
+                <span class="activity-target">Authentication API</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-time">10:38 AM</div>
+              <div class="activity-content">
+                <span class="activity-user">Maan</span>
+                <span class="activity-action">changed priority of</span>
+                <span class="activity-target">Dashboard UI</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-time">10:35 AM</div>
+              <div class="activity-content">
+                <span class="activity-user">Aashish</span>
+                <span class="activity-action">commented on</span>
+                <span class="activity-target">WebSocket Integration</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-time">10:30 AM</div>
+              <div class="activity-content">
+                <span class="activity-user">Nitya</span>
+                <span class="activity-action">completed</span>
+                <span class="activity-target">Database Schema</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-conflicts">
+          <div class="section-header">
+            <h3 class="section-title">Open Conflicts</h3>
+            <a href="#/conflicts" class="btn btn-secondary btn-sm">View All</a>
+          </div>
+          <div class="conflict-item">
+            <div class="conflict-info">
+              <div class="conflict-task">Authentication API</div>
+              <div class="conflict-field">Status conflict</div>
+            </div>
+            <div class="conflict-users">
+              <div class="conflict-avatar">
+                <div class="avatar avatar-sm">K</div>
+              </div>
+              <div class="conflict-avatar">
+                <div class="avatar avatar-sm">M</div>
+              </div>
+              <button class="btn btn-primary btn-sm">Resolve</button>
+            </div>
+          </div>
+          <div class="conflict-item">
+            <div class="conflict-info">
+              <div class="conflict-task">Dashboard UI</div>
+              <div class="conflict-field">Priority conflict</div>
+            </div>
+            <div class="conflict-users">
+              <div class="conflict-avatar">
+                <div class="avatar avatar-sm">M</div>
+              </div>
+              <div class="conflict-avatar">
+                <div class="avatar avatar-sm">A</div>
+              </div>
+              <button class="btn btn-primary btn-sm">Resolve</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Deadlines -->
+      <div class="section">
+        <div class="section-header">
+          <h3 class="section-title">Upcoming Deadlines</h3>
+        </div>
+        <div class="dashboard-deadlines">
+          <div class="deadline-item">
+            <div class="deadline-info">
+              <div class="deadline-date urgent">Oct 15</div>
+              <div class="deadline-task">Authentication API</div>
+            </div>
+            <span class="badge badge-warning">3 days</span>
+          </div>
+          <div class="deadline-item">
+            <div class="deadline-info">
+              <div class="deadline-date">Oct 18</div>
+              <div class="deadline-task">WebSocket Integration</div>
+            </div>
+            <span class="badge badge-primary">6 days</span>
+          </div>
+          <div class="deadline-item">
+            <div class="deadline-info">
+              <div class="deadline-date">Oct 20</div>
+              <div class="deadline-task">Dashboard UI</div>
+            </div>
+            <span class="badge badge-primary">8 days</span>
+          </div>
+          <div class="deadline-item">
+            <div class="deadline-info">
+              <div class="deadline-date">Oct 22</div>
+              <div class="deadline-task">File Upload System</div>
+            </div>
+            <span class="badge badge-primary">10 days</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

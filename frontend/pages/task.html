@@ -1,0 +1,419 @@
+<!-- Task Page Template -->
+<div id="task-page" class="page">
+  <div class="main-layout">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <div class="navbar-logo-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          ConflictCanvas
+        </div>
+        <div class="navbar-search">
+          <i data-lucide="search" class="navbar-search-icon"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+      </div>
+      <div class="navbar-right">
+        <button class="navbar-icon-btn" onclick="demo.start()">
+          <i data-lucide="play"></i>
+          <span class="badge">DEMO</span>
+        </button>
+        <button class="navbar-icon-btn">
+          <i data-lucide="bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="navbar-profile">
+          <div class="avatar avatar-sm avatar-online">K</div>
+          <div class="navbar-profile-info">
+            <span class="navbar-profile-name">Kunal</span>
+            <span class="navbar-profile-email">kunal@demo.com</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <nav class="sidebar-nav">
+          <a href="#/dashboard" class="sidebar-nav-item">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="#/projects" class="sidebar-nav-item">
+            <i data-lucide="folder"></i>
+            Projects
+          </a>
+          <a href="#/tasks" class="sidebar-nav-item">
+            <i data-lucide="check-square"></i>
+            Tasks
+          </a>
+          <a href="#/conflicts" class="sidebar-nav-item">
+            <i data-lucide="alert-triangle"></i>
+            Conflicts
+            <span class="badge badge-danger">2</span>
+          </a>
+          <a href="#/activity" class="sidebar-nav-item">
+            <i data-lucide="clock"></i>
+            Activity
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Team</div>
+        <div class="sidebar-users">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">K</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Kunal</div>
+              <div class="sidebar-user-task">Authentication API</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">M</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Maan</div>
+              <div class="sidebar-user-task">Dashboard UI</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm">N</div>
+              <div class="sidebar-user-status offline"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Nitya</div>
+              <div class="sidebar-user-task">Offline</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">A</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Aashish</div>
+              <div class="sidebar-user-task">WebSocket</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="sidebar-demo-btn" onclick="demo.start()">
+        <i data-lucide="play"></i>
+        Try Live Conflict Demo
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Back Button -->
+      <button class="btn btn-secondary" onclick="window.location.hash = '#/project'" style="margin-bottom: var(--space-lg);">
+        <i data-lucide="arrow-left"></i>
+        Back to Project
+      </button>
+
+      <!-- Conflict Warning -->
+      <div class="conflict-warning">
+        <div class="conflict-warning-header">
+          <i data-lucide="alert-triangle" style="color: var(--danger);"></i>
+          <span class="conflict-warning-title">⚠ Conflict Detected</span>
+        </div>
+        <p class="conflict-warning-text">
+          This task has unresolved conflicts. Multiple users have edited this task simultaneously.
+        </p>
+        <div class="conflict-warning-actions">
+          <button class="btn btn-danger" onclick="demo.start()">
+            <i data-lucide="git-merge"></i>
+            Resolve Conflict
+          </button>
+          <button class="btn btn-secondary">
+            <i data-lucide="eye"></i>
+            View Details
+          </button>
+        </div>
+      </div>
+
+      <!-- Task Header -->
+      <div class="task-header">
+        <div class="task-header-top">
+          <div class="task-title-section">
+            <h1 class="task-title">Authentication API</h1>
+            <div class="task-badges">
+              <span class="badge badge-warning">IN_REVIEW</span>
+              <span class="badge badge-warning">HIGH</span>
+            </div>
+            <p class="task-description">
+              Implement JWT-based authentication system with refresh tokens. The system should support login, registration, password reset, and token refresh functionality. All endpoints must be properly secured and validated.
+            </p>
+          </div>
+          <div class="task-header-actions">
+            <button class="btn btn-secondary">
+              <i data-lucide="edit"></i>
+              Edit
+            </button>
+            <button class="btn btn-primary">
+              <i data-lucide="check"></i>
+              Mark Done
+            </button>
+          </div>
+        </div>
+
+        <div class="task-meta-grid">
+          <div class="task-meta-item">
+            <span class="task-meta-label">Status</span>
+            <span class="task-meta-value status-in-review">In Review</span>
+          </div>
+          <div class="task-meta-item">
+            <span class="task-meta-label">Priority</span>
+            <span class="task-meta-value priority-high">High</span>
+          </div>
+          <div class="task-meta-item">
+            <span class="task-meta-label">Assignee</span>
+            <div class="flex items-center gap-2">
+              <div class="avatar avatar-sm">K</div>
+              <span class="task-meta-value">Kunal</span>
+            </div>
+          </div>
+          <div class="task-meta-item">
+            <span class="task-meta-label">Deadline</span>
+            <span class="task-meta-value">Oct 15, 2026</span>
+          </div>
+          <div class="task-meta-item">
+            <span class="task-meta-label">Version</span>
+            <span class="task-version-display">v7</span>
+          </div>
+          <div class="task-meta-item">
+            <span class="task-meta-label">Created</span>
+            <span class="task-meta-value">Oct 1, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task Content -->
+      <div class="task-content">
+        <!-- Main Content -->
+        <div class="task-main">
+          <!-- Comments Section -->
+          <div class="task-section">
+            <div class="task-section-header">
+              <h3 class="task-section-title">
+                <i data-lucide="message-square"></i>
+                Comments
+              </h3>
+              <span class="badge badge-primary">3</span>
+            </div>
+            <div class="comment-list">
+              <div class="comment-item">
+                <div class="comment-avatar">
+                  <div class="avatar">M</div>
+                </div>
+                <div class="comment-body">
+                  <div class="comment-header">
+                    <span class="comment-author">Maan</span>
+                    <span class="comment-time">2 hours ago</span>
+                  </div>
+                  <p class="comment-text">
+                    The JWT implementation looks good. Should we add rate limiting to the login endpoint?
+                  </p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">
+                  <div class="avatar">K</div>
+                </div>
+                <div class="comment-body">
+                  <div class="comment-header">
+                    <span class="comment-author">KunalYou</span>
+                    <span class="comment-time">1 hour ago</span>
+                  </div>
+                  <p class="comment-text">
+                    Good point! I'll add rate limiting in the next version.
+                  </p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">
+                  <div class="avatar">A</div>
+                </div>
+                <div class="comment-body">
+                  <div class="comment-header">
+                    <span class="comment-author">Aashish</span>
+                    <span class="comment-time">30 min ago</span>
+                  </div>
+                  <p class="comment-text">
+                    Also need to handle token refresh properly when the access token expires.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="comment-form">
+              <textarea class="comment-textarea" placeholder="Add a comment..."></textarea>
+              <div class="flex justify-end">
+                <button class="btn btn-primary">
+                  <i data-lucide="send"></i>
+                  Post Comment
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Section -->
+          <div class="task-section">
+            <div class="task-section-header">
+              <h3 class="task-section-title">
+                <i data-lucide="history"></i>
+                Activity History
+              </h3>
+            </div>
+            <div class="activity-list">
+              <div class="activity-entry">
+                <div class="activity-icon">
+                  <i data-lucide="git-commit"></i>
+                </div>
+                <div class="activity-content">
+                  <p class="activity-entry-text">
+                    <strong>Kunal</strong> changed status to <span class="text-primary">IN_REVIEW</span>
+                  </p>
+                  <span class="activity-entry-time">v7 — 10:42 AM</span>
+                </div>
+              </div>
+              <div class="activity-entry">
+                <div class="activity-icon">
+                  <i data-lucide="user"></i>
+                </div>
+                <div class="activity-content">
+                  <p class="activity-entry-text">
+                    <strong>Kunal</strong> assigned to <strong>Kunal</strong>
+                  </p>
+                  <span class="activity-entry-time">v6 — 10:30 AM</span>
+                </div>
+              </div>
+              <div class="activity-entry">
+                <div class="activity-icon">
+                  <i data-lucide="flag"></i>
+                </div>
+                <div class="activity-content">
+                  <p class="activity-entry-text">
+                    <strong>Maan</strong> changed priority to <span class="text-warning">HIGH</span>
+                  </p>
+                  <span class="activity-entry-time">v5 — 10:15 AM</span>
+                </div>
+              </div>
+              <div class="activity-entry">
+                <div class="activity-icon">
+                  <i data-lucide="plus"></i>
+                </div>
+                <div class="activity-content">
+                  <p class="activity-entry-text">
+                    <strong>Kunal</strong> created this task
+                  </p>
+                  <span class="activity-entry-time">v1 — Oct 1, 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="task-sidebar">
+          <!-- Assignees -->
+          <div class="task-section">
+            <div class="task-section-header">
+              <h3 class="task-section-title">
+                <i data-lucide="users"></i>
+                Assignees
+              </h3>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+            </div>
+            <div class="assignee-list">
+              <div class="assignee-item">
+                <div class="assignee-info">
+                  <div class="avatar avatar-sm">K</div>
+                  <div>
+                    <div class="font-heading text-sm">Kunal</div>
+                    <div class="assignee-role">Assignee</div>
+                  </div>
+                </div>
+                <button class="navbar-icon-btn btn-sm">
+                  <i data-lucide="x"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Files -->
+          <div class="task-section">
+            <div class="task-section-header">
+              <h3 class="task-section-title">
+                <i data-lucide="paperclip"></i>
+                Attachments
+              </h3>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="upload"></i>
+              </button>
+            </div>
+            <div class="file-list">
+              <div class="file-item">
+                <div class="file-info">
+                  <div class="file-icon">
+                    <i data-lucide="file-text"></i>
+                  </div>
+                  <div class="file-details">
+                    <div class="file-name">auth-spec.pdf</div>
+                    <div class="file-meta">2.4 MB • PDF</div>
+                  </div>
+                </div>
+                <div class="file-actions">
+                  <button class="navbar-icon-btn btn-sm">
+                    <i data-lucide="download"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="task-section">
+            <div class="task-section-header">
+              <h3 class="task-section-title">
+                <i data-lucide="zap"></i>
+                Quick Actions
+              </h3>
+            </div>
+            <div class="flex flex-col gap-2">
+              <button class="btn btn-secondary btn-sm w-full">
+                <i data-lucide="copy"></i>
+                Copy Link
+              </button>
+              <button class="btn btn-secondary btn-sm w-full">
+                <i data-lucide="share-2"></i>
+                Share
+              </button>
+              <button class="btn btn-secondary btn-sm w-full">
+                <i data-lucide="archive"></i>
+                Archive
+              </button>
+              <button class="btn btn-danger btn-sm w-full">
+                <i data-lucide="trash-2"></i>
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "conflictcanvas",
+  "version": "1.0.0",
+  "description": "Real-time collaboration platform with intelligent conflict resolution",
+  "scripts": {
+    "start": "python -m http.server 3000 --directory frontend",
+    "dev": "python -m http.server 3000 --directory frontend"
+  },
+  "keywords": [
+    "collaboration",
+    "conflict-resolution",
+    "real-time"
+  ],
+  "author": "",
+  "license": "MIT"
+}

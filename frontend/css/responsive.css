@@ -1,0 +1,389 @@
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .navbar-search {
+    width: 200px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-charts {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid-2,
+  .content-grid-3,
+  .content-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kanban-board {
+    overflow-x: auto;
+  }
+
+  .kanban-column {
+    flex: 0 0 280px;
+  }
+
+  .task-content {
+    grid-template-columns: 1fr;
+  }
+
+  .task-sidebar {
+    order: -1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 0 var(--space-md);
+  }
+
+  .navbar-search {
+    display: none;
+  }
+
+  .navbar-profile-info {
+    display: none;
+  }
+
+  .navbar-menu-toggle {
+    display: flex;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 64px;
+    bottom: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    z-index: var(--z-modal);
+    transition: transform var(--transition-normal);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-modal-backdrop);
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Main Content */
+  .main-content {
+    margin-left: 0;
+    padding: var(--space-md);
+    width: 100%;
+  }
+
+  /* Page Header */
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .page-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid-2,
+  .content-grid-3,
+  .content-grid-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Charts */
+  .dashboard-charts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Kanban */
+  .kanban-board {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .kanban-column {
+    flex: none;
+    width: 100%;
+    max-height: none;
+  }
+
+  /* Task Card */
+  .task-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  /* Conflicts */
+  .conflict-users {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .conflict-vs {
+    transform: rotate(90deg);
+  }
+
+  .conflict-details {
+    grid-template-columns: 1fr;
+  }
+
+  .conflict-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  .conflict-buttons {
+    flex-direction: column;
+  }
+
+  .conflict-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Activity */
+  .activity-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+  }
+
+  .filter-chip {
+    white-space: nowrap;
+  }
+
+  .activity-content {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .activity-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .activity-actions {
+    flex-direction: column;
+  }
+
+  .activity-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Modal */
+  .modal {
+    width: 100%;
+    margin: auto;
+    max-height: calc(100dvh - 2 * var(--space-sm));
+  }
+
+  .modal-overlay {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: var(--space-sm);
+  }
+
+  .modal-header {
+    position: relative;
+    padding-right: 3.5rem;
+  }
+
+  .modal-header .navbar-icon-btn {
+    top: var(--space-sm);
+    right: var(--space-sm);
+  }
+
+  .modal-footer {
+    position: sticky;
+    bottom: 0;
+    background: var(--bg-secondary);
+  }
+
+  /* Toast */
+  .toast {
+    min-width: auto;
+    max-width: calc(100vw - 2 * var(--space-md));
+  }
+
+  /* Task Page */
+  .task-header-top {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .task-header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .task-header-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .task-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Three.js */
+  #three-canvas {
+    opacity: 0.5;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .navbar {
+    height: 56px;
+    padding: 0 var(--space-sm);
+  }
+
+  .navbar-profile {
+    display: none;
+  }
+
+  .navbar-right {
+    gap: var(--space-sm);
+  }
+
+  .main-content {
+    padding: var(--space-sm);
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    padding: var(--space-md);
+  }
+
+  .stat-card {
+    padding: var(--space-md);
+  }
+
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.8125rem;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .badge {
+    font-size: 0.6875rem;
+    padding: var(--space-xs) 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+    padding: 0 var(--space-sm);
+  }
+
+  .navbar-logo {
+    gap: var(--space-xs);
+    font-size: 1rem;
+  }
+
+  .navbar-logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .navbar-right {
+    gap: var(--space-xs);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  #three-canvas {
+    display: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .navbar,
+  .sidebar,
+  #three-canvas,
+  .toast-container,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .card {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+}

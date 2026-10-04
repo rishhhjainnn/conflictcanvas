@@ -1,0 +1,281 @@
+/* Dashboard Styles */
+.dashboard-stats {
+  margin-bottom: var(--space-xl);
+}
+
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.chart-card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.chart-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chart-container {
+  position: relative;
+  min-width: 0;
+  height: 300px;
+}
+
+.chart-detail {
+  min-height: 2.75rem;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Recent Activity */
+.dashboard-activity {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.activity-timeline {
+  position: relative;
+  padding-left: var(--space-xl);
+}
+
+.activity-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.activity-item {
+  position: relative;
+  padding-bottom: var(--space-lg);
+}
+
+.activity-item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-xl) * -1 - 5px);
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  border: 2px solid var(--bg-primary);
+}
+
+.activity-item:last-child {
+  padding-bottom: 0;
+}
+
+.activity-time {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.activity-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.activity-user {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.activity-action {
+  color: var(--text-secondary);
+}
+
+.activity-target {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Open Conflicts */
+.dashboard-conflicts {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.conflict-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  transition: all var(--transition-fast);
+}
+
+.conflict-item:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.conflict-item:last-child {
+  margin-bottom: 0;
+}
+
+.conflict-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.conflict-task {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.conflict-field {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.conflict-users {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.conflict-avatar {
+  position: relative;
+}
+
+.conflict-avatar .avatar {
+  border: 2px solid var(--danger);
+}
+
+/* Upcoming Deadlines */
+.dashboard-deadlines {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.deadline-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.deadline-item:last-child {
+  border-bottom: none;
+}
+
+.deadline-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.deadline-date {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  min-width: 100px;
+}
+
+.deadline-date.overdue {
+  color: var(--danger);
+}
+
+.deadline-date.urgent {
+  color: var(--warning);
+}
+
+.deadline-task {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Team Activity */
+.dashboard-team {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.team-member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.team-member-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+}
+
+.team-member-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.team-member-status {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.team-member-status.online {
+  color: var(--success);
+}
+
+.team-member-task {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

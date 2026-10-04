@@ -1,0 +1,122 @@
+<div id="ai-analyzer-page" class="page">
+  <div class="main-layout">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <div class="navbar-logo-icon"><i data-lucide="layers"></i></div>
+          ConflictCanvas
+        </div>
+        <div class="navbar-search">
+          <i data-lucide="search" class="navbar-search-icon"></i>
+          <input type="text" placeholder="Search agents..." aria-label="Search agents">
+        </div>
+      </div>
+      <div class="navbar-right">
+        <button class="navbar-icon-btn" onclick="demo.start()" aria-label="Open live conflict demo">
+          <i data-lucide="play"></i>
+          <span class="badge">DEMO</span>
+        </button>
+        <button class="navbar-icon-btn" aria-label="Notifications">
+          <i data-lucide="bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="navbar-profile">
+          <div class="avatar avatar-sm avatar-online">K</div>
+          <div class="navbar-profile-info">
+            <span class="navbar-profile-name">Kunal</span>
+            <span class="navbar-profile-email">kunal@demo.com</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <nav class="sidebar-nav">
+          <a href="#/dashboard" class="sidebar-nav-item"><i data-lucide="layout-dashboard"></i>Dashboard</a>
+          <a href="#/projects" class="sidebar-nav-item"><i data-lucide="folder"></i>Projects</a>
+          <a href="#/tasks" class="sidebar-nav-item"><i data-lucide="check-square"></i>Tasks</a>
+          <a href="#/conflicts" class="sidebar-nav-item"><i data-lucide="alert-triangle"></i>Conflicts</a>
+          <a href="#/activity" class="sidebar-nav-item"><i data-lucide="activity"></i>Activity</a>
+        </nav>
+      </div>
+      <button class="sidebar-demo-btn" onclick="demo.start()">
+        <i data-lucide="play"></i>
+        Try Live Conflict Demo
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">AI Analyzer</h1>
+        <p class="page-subtitle">Prepare a focused brief and open an analysis agent.</p>
+      </div>
+
+      <div class="ai-analyzer-layout">
+        <section class="ai-brief-panel" aria-labelledby="ai-brief-title">
+          <div class="ai-section-heading">
+            <div>
+              <p class="ai-eyebrow">WORKSPACE CONTEXT</p>
+              <h2 id="ai-brief-title" class="ai-section-title">Analysis brief</h2>
+            </div>
+            <span class="ai-context-mark"><i data-lucide="scan-search"></i></span>
+          </div>
+
+          <div class="ai-form-grid">
+            <div class="form-group">
+              <label class="form-label" for="ai-project-select">Project</label>
+              <select id="ai-project-select" class="input"></select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ai-task-select">Task</label>
+              <select id="ai-task-select" class="input"></select>
+            </div>
+          </div>
+
+          <div class="form-group ai-focus-group">
+            <label class="form-label" for="ai-analysis-focus">Analysis focus</label>
+            <textarea id="ai-analysis-focus" class="input" rows="4" placeholder="Risks, dependencies, acceptance criteria, next steps...">Identify blockers, missing acceptance criteria, risks, and the next three concrete actions.</textarea>
+          </div>
+
+          <label class="ai-context-toggle">
+            <input id="ai-include-context" type="checkbox" checked>
+            <span>Include selected project and task context in the brief</span>
+          </label>
+
+          <div class="ai-preview-heading">
+            <h3>Brief preview</h3>
+            <button id="ai-copy-brief" class="btn btn-secondary btn-sm" type="button">
+              <i data-lucide="copy"></i>
+              Copy brief
+            </button>
+          </div>
+          <pre id="ai-brief-preview" class="ai-brief-preview" aria-label="Generated analysis brief"></pre>
+          <p id="ai-copy-status" class="ai-copy-status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="ai-agent-section" aria-labelledby="ai-agents-title">
+          <div class="ai-section-heading">
+            <div>
+              <p class="ai-eyebrow">AGENT DIRECTORY</p>
+              <h2 id="ai-agents-title" class="ai-section-title">Choose an agent</h2>
+            </div>
+            <span id="ai-agent-count" class="ai-agent-count"></span>
+          </div>
+          <div id="ai-agent-grid" class="ai-agent-grid"></div>
+        </section>
+
+        <section class="ai-history-section" aria-labelledby="ai-history-title">
+          <div class="ai-section-heading">
+            <div>
+              <p class="ai-eyebrow">LOCAL ACTIVITY</p>
+              <h2 id="ai-history-title" class="ai-section-title">Recent agent launches</h2>
+            </div>
+            <button id="ai-clear-history" class="btn btn-secondary btn-sm" type="button">Clear history</button>
+          </div>
+          <div id="ai-launch-history" class="ai-launch-history" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>

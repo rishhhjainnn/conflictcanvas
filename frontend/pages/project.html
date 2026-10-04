@@ -1,0 +1,463 @@
+<!-- Project Page Template -->
+<div id="project-page" class="page">
+  <div class="main-layout">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <div class="navbar-logo-icon">
+            <i data-lucide="layers"></i>
+          </div>
+          ConflictCanvas
+        </div>
+        <div class="navbar-search">
+          <i data-lucide="search" class="navbar-search-icon"></i>
+          <input type="text" placeholder="Search tasks...">
+        </div>
+      </div>
+      <div class="navbar-right">
+        <button class="navbar-icon-btn" onclick="demo.start()">
+          <i data-lucide="play"></i>
+          <span class="badge">DEMO</span>
+        </button>
+        <button class="navbar-icon-btn">
+          <i data-lucide="bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <div class="navbar-profile">
+          <div class="avatar avatar-sm avatar-online">K</div>
+          <div class="navbar-profile-info">
+            <span class="navbar-profile-name">Kunal</span>
+            <span class="navbar-profile-email">kunal@demo.com</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Main</div>
+        <nav class="sidebar-nav">
+          <a href="#/dashboard" class="sidebar-nav-item">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+          </a>
+          <a href="#/projects" class="sidebar-nav-item">
+            <i data-lucide="folder"></i>
+            Projects
+          </a>
+          <a href="#/tasks" class="sidebar-nav-item">
+            <i data-lucide="check-square"></i>
+            Tasks
+          </a>
+          <a href="#/conflicts" class="sidebar-nav-item">
+            <i data-lucide="alert-triangle"></i>
+            Conflicts
+            <span class="badge badge-danger">2</span>
+          </a>
+          <a href="#/activity" class="sidebar-nav-item">
+            <i data-lucide="clock"></i>
+            Activity
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-title">Team</div>
+        <div class="sidebar-users">
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">K</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Kunal</div>
+              <div class="sidebar-user-task">Authentication API</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">M</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Maan</div>
+              <div class="sidebar-user-task">Dashboard UI</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm">N</div>
+              <div class="sidebar-user-status offline"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Nitya</div>
+              <div class="sidebar-user-task">Offline</div>
+            </div>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+              <div class="avatar avatar-sm avatar-online">A</div>
+              <div class="sidebar-user-status online"></div>
+            </div>
+            <div class="sidebar-user-info">
+              <div class="sidebar-user-name">Aashish</div>
+              <div class="sidebar-user-task">WebSocket</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="sidebar-demo-btn" onclick="demo.start()">
+        <i data-lucide="play"></i>
+        Try Live Conflict Demo
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Project Header -->
+      <div class="project-header">
+        <div class="project-header-top">
+          <div class="project-title-section">
+            <h1 class="project-title">ConflictCanvas Platform</h1>
+            <p class="project-description">Building the future of real-time collaboration with intelligent conflict resolution</p>
+          </div>
+          <div class="project-header-actions">
+            <button class="btn btn-secondary">
+              <i data-lucide="settings"></i>
+              Settings
+            </button>
+            <button class="btn btn-primary">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+
+        <div class="project-header-meta">
+          <div class="project-meta">
+            <span class="project-meta-label">Status</span>
+            <span class="project-meta-value badge badge-success">Active</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-meta-label">Priority</span>
+            <span class="project-meta-value priority-high">High</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-meta-label">Deadline</span>
+            <span class="project-meta-value">Dec 31, 2026</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-meta-label">Progress</span>
+            <span class="project-meta-value">65%</span>
+          </div>
+          <div class="project-meta">
+            <span class="project-meta-label">Team</span>
+            <div class="project-team">
+              <div class="avatar avatar-sm">K</div>
+              <div class="avatar avatar-sm">M</div>
+              <div class="avatar avatar-sm">N</div>
+              <div class="avatar avatar-sm">A</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-tabs">
+          <button class="project-tab active">
+            <i data-lucide="kanban"></i>
+            Board
+          </button>
+          <button class="project-tab">
+            <i data-lucide="list"></i>
+            List
+          </button>
+          <button class="project-tab">
+            <i data-lucide="calendar"></i>
+            Timeline
+          </button>
+          <button class="project-tab">
+            <i data-lucide="file-text"></i>
+            Files
+          </button>
+          <button class="project-tab">
+            <i data-lucide="activity"></i>
+            Activity
+          </button>
+        </div>
+      </div>
+
+      <!-- Kanban Board -->
+      <div class="kanban-board">
+        <!-- TODO Column -->
+        <div class="kanban-column" data-status="todo">
+          <div class="kanban-column-header">
+            <div class="kanban-column-title">
+              <span>TODO</span>
+              <span class="kanban-column-count">2</span>
+            </div>
+            <div class="kanban-column-actions">
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </div>
+          <div class="kanban-column-body">
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=5'">
+              <div class="task-card-header">
+                <span class="task-card-title">Conflict Resolver</span>
+                <span class="task-card-version">v2</span>
+              </div>
+              <p class="task-card-description">Build intelligent conflict detection and resolution system</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-critical">Critical</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Oct 25</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">K</div>
+                </div>
+              </div>
+            </div>
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=6'">
+              <div class="task-card-header">
+                <span class="task-card-title">File Upload System</span>
+                <span class="task-card-version">v1</span>
+              </div>
+              <p class="task-card-description">Implement secure file upload with validation</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-medium">Medium</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Oct 22</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">H</div>
+                </div>
+              </div>
+            </div>
+            <button class="add-task-btn">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+
+        <!-- IN PROGRESS Column -->
+        <div class="kanban-column" data-status="in_progress">
+          <div class="kanban-column-header">
+            <div class="kanban-column-title">
+              <span>IN PROGRESS</span>
+              <span class="kanban-column-count">2</span>
+            </div>
+            <div class="kanban-column-actions">
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </div>
+          <div class="kanban-column-body">
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=2'">
+              <div class="task-card-header">
+                <span class="task-card-title">Dashboard UI</span>
+                <span class="task-card-version">v5</span>
+              </div>
+              <p class="task-card-description">Create responsive dashboard with real-time statistics</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-medium">Medium</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Oct 20</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">M</div>
+                </div>
+              </div>
+            </div>
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=4'">
+              <div class="task-card-header">
+                <span class="task-card-title">WebSocket Integration</span>
+                <span class="task-card-version">v4</span>
+              </div>
+              <p class="task-card-description">Implement real-time updates using WebSockets</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-high">High</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Oct 18</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">A</div>
+                </div>
+              </div>
+            </div>
+            <button class="add-task-btn">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+
+        <!-- IN REVIEW Column -->
+        <div class="kanban-column" data-status="in_review">
+          <div class="kanban-column-header">
+            <div class="kanban-column-title">
+              <span>IN REVIEW</span>
+              <span class="kanban-column-count">1</span>
+            </div>
+            <div class="kanban-column-actions">
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </div>
+          <div class="kanban-column-body">
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=1'">
+              <div class="task-card-header">
+                <span class="task-card-title">Authentication API</span>
+                <span class="task-card-version">v7</span>
+              </div>
+              <p class="task-card-description">Implement JWT-based authentication system with refresh tokens</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-high">High</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="calendar"></i>
+                    <span>Oct 15</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">K</div>
+                </div>
+                <div class="task-conflict-indicator">
+                  <i data-lucide="alert-triangle"></i>
+                  Conflict
+                </div>
+              </div>
+            </div>
+            <button class="add-task-btn">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+
+        <!-- DONE Column -->
+        <div class="kanban-column" data-status="done">
+          <div class="kanban-column-header">
+            <div class="kanban-column-title">
+              <span>DONE</span>
+              <span class="kanban-column-count">1</span>
+            </div>
+            <div class="kanban-column-actions">
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </div>
+          <div class="kanban-column-body">
+            <div class="task-card" draggable="true" onclick="window.location.hash = '#/task?id=3'">
+              <div class="task-card-header">
+                <span class="task-card-title">Database Schema</span>
+                <span class="task-card-version">v12</span>
+              </div>
+              <p class="task-card-description">Design PostgreSQL schema for users, projects, tasks, and conflicts</p>
+              <div class="task-card-meta">
+                <div class="task-meta-row">
+                  <div class="task-meta-item">
+                    <i data-lucide="flag"></i>
+                    <span class="priority-high">High</span>
+                  </div>
+                  <div class="task-meta-item">
+                    <i data-lucide="check"></i>
+                    <span class="text-success">Completed</span>
+                  </div>
+                </div>
+              </div>
+              <div class="task-card-footer">
+                <div class="task-assignee">
+                  <div class="avatar avatar-sm">N</div>
+                </div>
+              </div>
+            </div>
+            <button class="add-task-btn">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+
+        <!-- BLOCKED Column -->
+        <div class="kanban-column" data-status="blocked">
+          <div class="kanban-column-header">
+            <div class="kanban-column-title">
+              <span>BLOCKED</span>
+              <span class="kanban-column-count">0</span>
+            </div>
+            <div class="kanban-column-actions">
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="navbar-icon-btn btn-sm">
+                <i data-lucide="more-horizontal"></i>
+              </button>
+            </div>
+          </div>
+          <div class="kanban-column-body">
+            <button class="add-task-btn">
+              <i data-lucide="plus"></i>
+              Add Task
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
