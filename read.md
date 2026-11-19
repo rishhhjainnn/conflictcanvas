@@ -289,10 +289,10 @@ Projects     Tasks     Completed     Conflicts
 Track important project events:
 
 ```text
-Kunal created Login API
+Rishi created Login API
 Aashish was assigned to Login API
 Nitya added a comment
-Kunal changed priority to HIGH
+Rishi changed priority to HIGH
 Aashish uploaded API.pdf
 Conflict detected
 Conflict resolved

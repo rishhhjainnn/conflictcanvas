@@ -2,6 +2,8 @@
 
 **Real-Time Collaboration. Intelligent Conflict Resolution. Zero Silent Data Loss.**
 
+> **Developed & Maintained by Rishi Jain & Vansh**
+
 ConflictCanvas is a collaborative workspace for remote teams with intelligent version-based conflict resolution. When two users edit the same task simultaneously, ConflictCanvas detects the conflict instead of silently overwriting someone's work.
 
 ## Features
@@ -214,9 +216,31 @@ When users modify the same field:
 ## Deployment
 
 ### Frontend (Vercel/Netlify)
-1. Build the frontend (if using a build tool)
-2. Deploy to Vercel or Netlify
-3. Configure environment variables
+
+The frontend is configured as a static site and can be deployed to:
+
+**Vercel:**
+- `vercel.json` configuration included
+- SPA routing configured
+- Asset caching optimized
+- See `DEPLOYMENT.md` for detailed instructions
+
+**Netlify:**
+- `netlify.toml` configuration included
+- SPA routing configured
+- Asset caching optimized
+- See `DEPLOYMENT.md` for detailed instructions
+
+**Quick Deploy:**
+```bash
+# Vercel
+npm install -g vercel
+vercel
+
+# Netlify
+npm install -g netlify-cli
+netlify deploy --prod
+```
 
 ### Backend (Render/Railway)
 1. Deploy the FastAPI application

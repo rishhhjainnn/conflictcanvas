@@ -9,8 +9,8 @@ class Demo {
 
   start() {
     this.active = true;
-    this.currentUser = DEMO_USERS[0]; // Kunal
-    this.otherUser = DEMO_USERS[1]; // Maan
+    this.currentUser = DEMO_USERS[0]; // Rishi
+    this.otherUser = DEMO_USERS[1]; // Vansh
     this.task = { ...DEMO_TASKS[0] }; // Authentication API
     
     // Reset to version 7

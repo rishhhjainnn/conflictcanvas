@@ -1,12 +1,34 @@
+# Environment variables
 .env
 .env.*
-!.env.example
+
+# Python
 .venv/
 venv/
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Database
 *.db
 *.sqlite
+
+# Logs
+*.log
+
+# Backend (not deploying to Vercel)
 backend/
 database/
+
+# Documentation
 read.md
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

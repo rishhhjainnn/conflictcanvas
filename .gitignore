@@ -24,7 +24,7 @@ wheels/
 venv/
 env/
 ENV/
-.venv
+.venv/
 
 # Environment Variables
 .env
@@ -40,15 +40,13 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Database
+# Database files
 *.db
 *.sqlite
 
 # Logs
 *.log
 
-.vercel
-
-# Backend (not deploying to Vercel)
-backend/
-database/
+# Deployment build caches
+.vercel/
+.netlify/

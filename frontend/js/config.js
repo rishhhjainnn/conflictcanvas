@@ -53,8 +53,8 @@ const CONFIG = {
 
 // Demo Users
 const DEMO_USERS = [
-  { id: 1, name: 'Kunal', email: 'kunal@demo.com', avatar: 'K', online: true },
-  { id: 2, name: 'Maan', email: 'maan@demo.com', avatar: 'M', online: true },
+  { id: 1, name: 'Rishi', email: 'rishi@demo.com', avatar: 'R', online: true },
+  { id: 2, name: 'Vansh', email: 'vansh@demo.com', avatar: 'V', online: true },
   { id: 3, name: 'Nitya', email: 'nitya@demo.com', avatar: 'N', online: false },
   { id: 4, name: 'Aashish', email: 'aashish@demo.com', avatar: 'A', online: true },
   { id: 5, name: 'Hardika', email: 'hardika@demo.com', avatar: 'H', online: false },
@@ -65,10 +65,10 @@ const DEMO_USERS = [
 const DEMO_PROJECT = {
   id: 1,
   name: 'ConflictCanvas Platform',
-  description: 'Building the future of real-time collaboration with intelligent conflict resolution',
+  description: 'Real-time collaborative workspace with intelligent conflict resolution - Developed by Rishi & Vansh',
   status: 'active',
   priority: 'high',
-  progress: 65,
+  progress: 75,
   deadline: '2026-12-31',
   team: DEMO_USERS.slice(0, 4)
 };

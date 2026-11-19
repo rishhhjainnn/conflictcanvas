@@ -24,7 +24,7 @@ class ActivityManager {
       {
         id: 1,
         user_id: 1,
-        user_name: 'Kunal',
+        user_name: 'Rishi',
         action: 'conflict_detected',
         entity_type: 'task',
         entity_id: 1,
@@ -35,7 +35,7 @@ class ActivityManager {
       {
         id: 2,
         user_id: 2,
-        user_name: 'Maan',
+        user_name: 'Vansh',
         action: 'task_updated',
         entity_type: 'task',
         entity_id: 2,

@@ -1,8 +1,16 @@
 # Deployment Guide - ConflictCanvas
 
-## Deploying to Vercel
+This guide will help you deploy the ConflictCanvas frontend to production.
 
-This guide will help you deploy the ConflictCanvas frontend to Vercel.
+## Deployment Platforms
+
+ConflictCanvas frontend can be deployed to:
+- **Vercel** (Recommended)
+- **Netlify**
+- GitHub Pages
+- Any static hosting service
+
+## Deploying to Vercel
 
 ### Prerequisites
 
@@ -26,7 +34,7 @@ This guide will help you deploy the ConflictCanvas frontend to Vercel.
 
 3. **Deploy from project root**
    ```bash
-   cd c:\Users\KUNAL\OneDrive\Desktop\Projects\algo
+   cd /Users/rishijain/Downloads/algo
    vercel
    ```
 
@@ -47,7 +55,7 @@ This guide will help you deploy the ConflictCanvas frontend to Vercel.
 
 1. **Initialize Git repository**
    ```bash
-   cd c:\Users\KUNAL\OneDrive\Desktop\Projects\algo
+   cd /Users/rishijain/Downloads/algo
    git init
    git add .
    git commit -m "Initial commit"
@@ -78,10 +86,84 @@ The project is configured as a static site deployment:
 - **Output Directory**: `frontend/`
 - **Build Command**: None (static HTML/CSS/JS)
 - **Framework**: None (vanilla JavaScript)
+- **SPA Routing**: All routes redirect to `index.html` for client-side routing
+- **Asset Caching**: Static assets (JS, CSS, images) cached for 1 year
+- **Security Headers**: X-Content-Type-Options nosniff enabled
+
+## Deploying to Netlify
+
+### Prerequisites
+
+1. A Netlify account (sign up at https://netlify.com)
+2. Git installed on your machine
+3. A GitHub account (recommended)
+
+### Deployment Steps
+
+#### Option 1: Deploy via Netlify CLI
+
+1. **Install Netlify CLI**
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. **Login to Netlify**
+   ```bash
+   netlify login
+   ```
+
+3. **Initialize Netlify**
+   ```bash
+   cd /Users/rishijain/Downloads/algo
+   netlify init
+   ```
+
+4. **Follow the prompts**
+   - Create & configure a new site? → Yes
+   - Team: → Your team
+   - Site name: → conflictcanvas (or your preferred name)
+   - Build command: → (leave blank)
+   - Directory to deploy: → frontend
+
+5. **Deploy to production**
+   ```bash
+   netlify deploy --prod
+   ```
+
+#### Option 2: Deploy via GitHub Integration
+
+1. **Initialize Git repository** (if not already done)
+   ```bash
+   cd /Users/rishijain/Downloads/algo
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
+
+2. **Push to GitHub** (if not already done)
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/conflictcanvas.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+3. **Connect to Netlify**
+   - Go to https://app.netlify.com/start
+   - Import your GitHub repository
+   - Netlify will automatically detect the `netlify.toml` configuration
+   - Click "Deploy site"
+
+### Netlify Configuration
+
+The `netlify.toml` file includes:
+- **Build Settings**: Publish directory set to `frontend/`
+- **Redirects**: All routes redirect to `index.html` for SPA routing
+- **Headers**: Cache control and security headers configured
+- **Asset Optimization**: Static assets cached for 1 year
 
 ### What Gets Deployed
 
-Only the frontend is deployed to Vercel:
+Only the frontend is deployed:
 - `frontend/` directory with all HTML, CSS, and JavaScript files
 - Static assets (images, fonts, etc.)
 
