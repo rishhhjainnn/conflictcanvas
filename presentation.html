@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConflictCanvas - Project Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(23, 32, 54, 0.7);
+      --card-border: rgba(99, 102, 241, 0.2);
+      --primary: #6366f1;
+      --primary-glow: rgba(99, 102, 241, 0.4);
+      --secondary: #06b6d4;
+      --accent: #ec4899;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+
+    .background-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, rgba(9, 13, 22, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .slide-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1000px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 50%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+
+    p.subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+    }
+
+    .code-box {
+      font-family: 'JetBrains Mono', monospace;
+      background: #0f172a;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 12px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(9, 13, 22, 0.9);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    .badge-success { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-warning { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .badge-danger { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+  </style>
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="slide-container">
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+      <span class="slide-tag">Project Presentation</span>
+      <h1>ConflictCanvas</h1>
+      <p class="subtitle">Real-Time Collaborative Workspace with Intelligent Version-Based Conflict Resolution</p>
+      
+      <div class="grid-2" style="margin-top: 40px;">
+        <div class="card highlight-card">
+          <div class="card-title">👨‍💻 Developed By</div>
+          <p style="color: #fff; font-size: 1.1rem; font-weight: 600;">Rishi Jain & Vansh</p>
+          <p>Full-Stack Collaboration System</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🎯 Core Innovation</div>
+          <p>Zero Silent Data Loss during simultaneous edits using Version Matching & Smart Merge algorithms.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+      <span class="slide-tag">The Problem</span>
+      <h2>The "Last-Write-Wins" Dilemma</h2>
+      <p class="subtitle">Why traditional remote project management tools fail during simultaneous editing.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">⚠️ Silent Overwrites</div>
+          <p>User A marks task as "Completed". User B sets it to "In Review" 1 second later. User A's changes disappear silently.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">📉 Lost Team Time</div>
+          <p>No conflict alerts means developers and managers argue over overwritten statuses, deadlines, and specs.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🔌 Disconnected State</div>
+          <p>Traditional tools require manual page refreshes or full document locking which breaks modern flow.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: The Solution -->
+    <div class="slide">
+      <span class="slide-tag">The Solution</span>
+      <h2>Intelligent Conflict Resolution</h2>
+      <p class="subtitle">ConflictCanvas solves simultaneous edits with a dual-layer resolution engine.</p>
+      
+      <div class="grid-2">
+        <div class="card highlight-card">
+          <div class="card-title">✨ Layer 1: Smart Merge (Auto)</div>
+          <p>When users modify <b>different fields</b> (e.g., Rishi edits Status, Vansh edits Priority), the engine automatically reconciles and merges both updates into the next version.</p>
+          <div class="code-box">baseVersion == serverVersion ? ACCEPT : AUTO_MERGE</div>
+        </div>
+        <div class="card highlight-card">
+          <div class="card-title">🛡️ Layer 2: Visual Conflict UI</div>
+          <p>When users edit the <b>same field</b> simultaneously, backend throws <code>409 Conflict</code> and displays side-by-side versions: Keep Mine, Keep Latest, or Smart Merge.</p>
+          <div class="code-box">HTTP 409 Conflict: [Keep Mine | Keep Latest | Resolve]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Key Features -->
+    <div class="slide">
+      <span class="slide-tag">Features</span>
+      <h2>Core Platform Capabilities</h2>
+      <p class="subtitle">Complete modern workspace tailored for remote development teams.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">📋 Kanban Task Board</div>
+          <p>TODO → IN_PROGRESS → IN_REVIEW → DONE with priority tagging and live drag-and-drop.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">📊 Analytics Dashboard</div>
+          <p>Chart.js distribution graphs, project completion velocity, and audit activity timeline.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🌐 3D Canvas Scene</div>
+          <p>Three.js WebGL visualization showing team nodes in dynamic 3D space.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">💬 Live Comments & Files</div>
+          <p>Contextual thread discussions and validated file attachments per task.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">🤖 AI Analyzer</div>
+          <p>Prepares structured task briefs to submit directly to Claude, ChatGPT, or Nemotron.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">⚡ Live Conflict Demo</div>
+          <p>Interactive simulator testing multi-user concurrent edits with one click.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Tech Stack -->
+    <div class="slide">
+      <span class="slide-tag">Architecture</span>
+      <h2>Full-Stack Technology Stack</h2>
+      <p class="subtitle">Built with lightweight, high-performance modern technologies.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">💻 Frontend</div>
+          <p>• HTML5, CSS3 Glassmorphism<br>
+             • Vanilla JS (Modular ES6+)<br>
+             • <b>Three.js</b> (WebGL 3D Scene)<br>
+             • <b>GSAP</b> (Micro-interactions)<br>
+             • <b>Chart.js</b> (Analytics)
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">⚙️ Backend & Database</div>
+          <p>• <b>FastAPI</b> (Asynchronous Python API)<br>
+             • <b>WebSockets</b> (Bi-directional live pipeline)<br>
+             • <b>SQLAlchemy ORM</b><br>
+             • <b>SQLite</b> (Zero-config local) & <b>PostgreSQL</b><br>
+             • <b>JWT</b> Authentication & Bcrypt
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Database & Data Model -->
+    <div class="slide">
+      <span class="slide-tag">Data Model</span>
+      <h2>Version Tracking Database Schema</h2>
+      <p class="subtitle">How ConflictCanvas tracks entity versions to guarantee integrity.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">🔑 Tasks Table</div>
+          <p>• <code>id</code>: Primary Key<br>
+             • <code>title</code>, <code>description</code>, <code>status</code>, <code>priority</code><br>
+             • <b><code>version</code></b>: Monotonically increasing integer<br>
+             • <code>created_by</code>, <code>updated_by</code>
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">⚡ Conflicts Table</div>
+          <p>• <code>task_id</code>, <code>user_id</code><br>
+             • <code>base_version</code> vs <code>server_version</code><br>
+             • <code>client_changes</code> & <code>server_changes</code> (JSON)<br>
+             • <code>status</code>: [OPEN, RESOLVED]
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Live Demo Flow -->
+    <div class="slide">
+      <span class="slide-tag">Live Demonstration</span>
+      <h2>Demonstration Walkthrough</h2>
+      <p class="subtitle">Step-by-step flow to demonstrate to evaluators.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">1. Dashboard View</div>
+          <p>Open <code>http://localhost:3000</code>. Highlight the 3D scene, responsive stats, and team status.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">2. Kanban Board</div>
+          <p>Show task lifecycle stages, priority badges, and activity timeline audit log.</p>
+        </div>
+        <div class="card highlight-card">
+          <div class="card-title">3. Live Simulation</div>
+          <p>Trigger "Live Conflict Demo": show simultaneous changes by Rishi & Vansh and resolve them cleanly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Conclusion -->
+    <div class="slide">
+      <span class="slide-tag">Conclusion</span>
+      <h2>Impact & Summary</h2>
+      <p class="subtitle">Zero Silent Data Loss is the future of collaborative software.</p>
+      
+      <div class="grid-2">
+        <div class="card highlight-card">
+          <div class="card-title">🌟 Key Takeaways</div>
+          <p>• Real-time collaboration without race conditions.<br>
+             • Intelligent smart-merge saves time and prevents lost work.<br>
+             • Production ready: deployed on GitHub, runs with SQLite/Postgres.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title">🔗 Project Links</div>
+          <p>• <b>GitHub:</b> github.com/rishhhjainnn/conflictcanvas<br>
+             • <b>Presenters:</b> Rishi Jain & Vansh<br>
+             • <b>Thank You!</b> Ready for Q&A.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>Slide <span id="current-slide">1</span> of <span id="total-slides">8</span> — <b>ConflictCanvas</b> by Rishi & Vansh</div>
+    <div style="display: flex; gap: 10px;">
+      <button class="nav-btn" onclick="prevSlide()">← Previous</button>
+      <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalEl = document.getElementById('total-slides');
+    const currentEl = document.getElementById('current-slide');
+    totalEl.textContent = slides.length;
+
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      currentEl.textContent = current + 1;
+    }
+
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
