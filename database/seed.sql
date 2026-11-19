@@ -1,5 +1,5 @@
 -- ConflictCanvas Seed Data
--- Seed Users, Project, Tasks, and Activities for Rishi & Vansh
+-- Seed Users, Project, Tasks, and Activities for Rishi Jain
 
 -- 1. Insert Initial Users
 INSERT INTO users (id, email, name, hashed_password, avatar, is_active, is_online)
@@ -14,7 +14,7 @@ INSERT INTO projects (id, name, description, status, priority, progress, deadlin
 VALUES (
     1,
     'ConflictCanvas Platform',
-    'Real-time collaborative workspace with intelligent conflict resolution developed by Rishi & Vansh',
+    'Real-time collaborative workspace with intelligent conflict resolution developed by Rishi Jain',
     'active',
     'high',
     75,

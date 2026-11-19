@@ -65,7 +65,7 @@ const DEMO_USERS = [
 const DEMO_PROJECT = {
   id: 1,
   name: 'ConflictCanvas Platform',
-  description: 'Real-time collaborative workspace with intelligent conflict resolution - Developed by Rishi & Vansh',
+  description: 'Real-time collaborative workspace with intelligent conflict resolution - Developed by Rishi Jain',
   status: 'active',
   priority: 'high',
   progress: 75,

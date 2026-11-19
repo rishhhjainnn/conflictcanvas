@@ -2,7 +2,7 @@
 
 **Real-Time Collaboration. Intelligent Conflict Resolution. Zero Silent Data Loss.**
 
-> **Developed & Maintained by Rishi Jain & Vansh**
+> **Developed & Maintained by Rishi Jain**
 
 ConflictCanvas is a collaborative workspace for remote teams with intelligent version-based conflict resolution. When two users edit the same task simultaneously, ConflictCanvas detects the conflict instead of silently overwriting someone's work.
 
